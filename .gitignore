@@ -1,14 +1,6 @@
 
-# Created by https://www.gitignore.io/api/go,bazel,macos,windows
-# Edit at https://www.gitignore.io/?templates=go,bazel,macos,windows
-
-### Bazel ###
-# gitignore template for Bazel build system
-# website: https://bazel.build/
-
-# Ignore all bazel-* symlinks. There is no full list since this can change
-# based on the name of the directory bazel is cloned into.
-/bazel-*
+# Created by https://www.gitignore.io/api/go,macos,windows
+# Edit at https://www.gitignore.io/?templates=go,macos,windows
 
 ### Go ###
 # Binaries for programs and plugins
@@ -81,4 +73,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.gitignore.io/api/go,bazel,macos,windows
+# End of https://www.gitignore.io/api/go,macos,windows
