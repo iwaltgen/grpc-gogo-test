@@ -11,7 +11,7 @@ import "google/protobuf/timestamp.proto";
 // import "github.com/mwitkow/go-proto-validators/validator.proto";
 // import "validate/validate.proto";
 
-option go_package = "github.com/iwaltgen/grpc-gogo-test/proto";
+option go_package = "proto";
 
 // option (grpc.gateway.protoc_gen_swagger.options.openapiv2_swagger) = {
 //   info: {
