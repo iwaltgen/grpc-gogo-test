@@ -24,6 +24,26 @@ load("@bazel_gazelle//:deps.bzl", "gazelle_dependencies", "go_repository")
 
 gazelle_dependencies()
 
+http_archive(
+    name = "io_bazel_rules_docker",
+    urls = ["https://github.com/bazelbuild/rules_docker/archive/v0.7.0.tar.gz"],
+    sha256 = "aed1c249d4ec8f703edddf35cbe9dfaca0b5f5ea6e4cd9e83e99f3b0d1136c3d",
+    strip_prefix = "rules_docker-0.7.0",
+)
+
+load("@io_bazel_rules_docker//repositories:repositories.bzl", container_repositories = "repositories")
+
+container_repositories()
+
+load("@io_bazel_rules_docker//container:container.bzl", "container_pull")
+
+container_pull(
+  name = "prototool",
+  registry = "index.docker.io",
+  repository = "uber/prototool",
+  tag = "latest",
+)
+
 go_repository(
     name = "com_github_armon_consul_api",
     commit = "eb2c6b5be1b6",
