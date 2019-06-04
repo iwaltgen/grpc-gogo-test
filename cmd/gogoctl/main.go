@@ -7,7 +7,10 @@ import (
 	"github.com/iwaltgen/grpc-gogo-test/pkg/gogoctl/cmd"
 )
 
-func main() {
+func init() {
 	rand.Seed(time.Now().UnixNano())
+}
+
+func main() {
 	cmd.Execute()
 }

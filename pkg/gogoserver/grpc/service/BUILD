@@ -6,5 +6,8 @@ go_library(
     name = "go_default_library",
     srcs = ["greeter.go"],
     importpath = "github.com/iwaltgen/grpc-gogo-test/pkg/gogoserver/grpc/service",
-    deps = ["//proto:go_default_library"],
+    deps = [
+        "//proto:go_default_library",
+        "//vendor/github.com/gogo/protobuf/types:go_default_library",
+    ],
 )

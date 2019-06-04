@@ -4,7 +4,7 @@ package gogotest;
 
 import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
-// import "google/protobuf/duration.proto";
+import "google/protobuf/duration.proto";
 import "google/api/annotations.proto";
 import "github.com/gogo/protobuf/gogoproto/gogo.proto";
 // import "protoc-gen-swagger/options/annotations.proto";
@@ -42,7 +42,7 @@ service GreeterService {
 
   rpc SayTime (google.protobuf.Empty) returns (google.protobuf.Timestamp);
 
-  rpc SubscribeTime (google.protobuf.Empty) returns (stream google.protobuf.Timestamp);
+  rpc SubscribeTime (TimeRequest) returns (stream google.protobuf.Timestamp);
 
 	// rpc SayHello (HelloRequest) returns (HelloReply) {
 	// 	option(google.api.http) = {
@@ -64,4 +64,9 @@ message HelloRequest {
 
 message HelloReply {
 	string message = 1;
+}
+
+message TimeRequest {
+	int32 count = 1;
+	google.protobuf.Duration interval = 2;
 }

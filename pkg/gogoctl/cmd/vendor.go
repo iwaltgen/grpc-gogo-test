@@ -5,3 +5,7 @@ import (
 	_ "github.com/gogo/protobuf/gogoproto"
 	_ "github.com/gogo/protobuf/types"
 )
+
+func init() {
+	// retain vendor module
+}
