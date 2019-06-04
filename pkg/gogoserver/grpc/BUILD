@@ -8,6 +8,11 @@ go_library(
     deps = [
         "//pkg/gogoserver/grpc/service:go_default_library",
         "//proto/v1:go_default_library",
+        "//vendor/github.com/grpc-ecosystem/go-grpc-middleware:go_default_library",
+        "//vendor/github.com/grpc-ecosystem/go-grpc-middleware/recovery:go_default_library",
+        "//vendor/github.com/grpc-ecosystem/go-grpc-middleware/validator:go_default_library",
         "//vendor/google.golang.org/grpc:go_default_library",
+        "//vendor/google.golang.org/grpc/codes:go_default_library",
+        "//vendor/google.golang.org/grpc/status:go_default_library",
     ],
 )

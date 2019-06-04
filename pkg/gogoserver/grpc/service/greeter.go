@@ -20,9 +20,6 @@ func New() *Greeter {
 
 // SayHello name hello reply
 func (s *Greeter) SayHello(ctx context.Context, req *pb.HelloRequest) (*pb.HelloReply, error) {
-	if err := req.Validate(); err != nil {
-		return nil, err
-	}
 	return &pb.HelloReply{
 		Message: req.Name + " hello",
 	}, nil
@@ -42,16 +39,8 @@ func (s *Greeter) SubscribeTime(
 	req *pb.TimeRequest,
 	stream pb.GreeterService_SubscribeTimeServer) error {
 
-	if err := req.Validate(); err != nil {
-		return err
-	}
-
-	interval, err := types.DurationFromProto(req.Interval)
-	if err != nil {
-		return errors.New("invalid request parameter")
-	}
-
 	ctx := stream.Context()
+	interval, _ := types.DurationFromProto(req.Interval)
 	ticker := time.NewTicker(interval)
 	defer ticker.Stop()
 

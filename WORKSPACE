@@ -365,3 +365,9 @@ go_repository(
     importpath = "github.com/lyft/protoc-gen-validate",
     tag = "v0.0.14",
 )
+
+go_repository(
+    name = "com_github_grpc_ecosystem_go_grpc_middleware",
+    importpath = "github.com/grpc-ecosystem/go-grpc-middleware",
+    tag = "v1.0.0",
+)
