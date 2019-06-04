@@ -341,3 +341,27 @@ go_repository(
     commit = "1d60e4601c6f",
     importpath = "golang.org/x/sync",
 )
+
+go_repository(
+    name = "com_github_envoyproxy_protoc_gen_validate",
+    importpath = "github.com/envoyproxy/protoc-gen-validate",
+    tag = "v0.0.14",
+)
+
+go_repository(
+    name = "com_github_iancoleman_strcase",
+    commit = "e506e3ef7365",
+    importpath = "github.com/iancoleman/strcase",
+)
+
+go_repository(
+    name = "com_github_lyft_protoc_gen_star",
+    importpath = "github.com/lyft/protoc-gen-star",
+    tag = "v0.4.10",
+)
+
+go_repository(
+    name = "com_github_lyft_protoc_gen_validate",
+    importpath = "github.com/lyft/protoc-gen-validate",
+    tag = "v0.0.14",
+)

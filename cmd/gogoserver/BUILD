@@ -5,11 +5,7 @@ go_library(
     srcs = ["main.go"],
     importpath = "github.com/iwaltgen/grpc-gogo-test/cmd/gogoserver",
     visibility = ["//visibility:private"],
-    deps = [
-        "//pkg/gogoserver/grpc/service:go_default_library",
-        "//proto:go_default_library",
-        "//vendor/google.golang.org/grpc:go_default_library",
-    ],
+    deps = ["//pkg/gogoserver/grpc:go_default_library"],
 )
 
 go_binary(

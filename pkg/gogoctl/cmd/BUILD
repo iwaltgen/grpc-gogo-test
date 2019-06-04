@@ -12,7 +12,7 @@ go_library(
     ],
     importpath = "github.com/iwaltgen/grpc-gogo-test/pkg/gogoctl/cmd",
     deps = [
-        "//proto:go_default_library",
+        "//proto/v1:go_default_library",
         "//vendor/github.com/gogo/googleapis/google/api:go_default_library",
         "//vendor/github.com/gogo/protobuf/gogoproto:go_default_library",
         "//vendor/github.com/gogo/protobuf/types:go_default_library",

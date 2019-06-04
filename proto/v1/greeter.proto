@@ -1,28 +1,15 @@
 syntax = "proto3";
 
-package gogotest;
+package gogotest.proto.v1;
 
 import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/duration.proto";
 import "google/api/annotations.proto";
 import "github.com/gogo/protobuf/gogoproto/gogo.proto";
-// import "protoc-gen-swagger/options/annotations.proto";
-// import "github.com/mwitkow/go-proto-validators/validator.proto";
-// import "validate/validate.proto";
+import "github.com/lyft/protoc-gen-validate/validate/validate.proto";
 
-option go_package = "proto";
-
-// option (grpc.gateway.protoc_gen_swagger.options.openapiv2_swagger) = {
-//   info: {
-//     version: "1.0";
-//   };
-//   external_docs: {
-//     url: "https://github.com/iwaltgen/grpc-gogo-test";
-//     description: "gRPC gogo test repository";
-//   }
-//   schemes: HTTPS;
-// };
+option go_package = "protov1";
 
 // Enable custom Marshal method.
 option (gogoproto.marshaler_all) = true;
@@ -44,22 +31,10 @@ service GreeterService {
 
   rpc SubscribeTime (TimeRequest) returns (stream google.protobuf.Timestamp);
 
-	// rpc SayHello (HelloRequest) returns (HelloReply) {
-	// 	option(google.api.http) = {
-	// 		get: "/api/hello/{name}",
-	// 	};
-  // }
-
-  // rpc SayTime (google.protobuf.Empty) returns (google.protobuf.Timestamp) {
-	// 	option(google.api.http) = {
-	// 		get: "/api/time",
-	// 	};
-  // }
 }
 
 message HelloRequest {
-	string name = 1;
-	// string name = 1 [(validate.rules).string.len = 3];
+	string name = 1 [(validate.rules).string.min_len = 3];
 }
 
 message HelloReply {
@@ -67,6 +42,6 @@ message HelloReply {
 }
 
 message TimeRequest {
-	int32 count = 1;
-	google.protobuf.Duration interval = 2;
+	int32 count = 1 [(validate.rules).int32.gte = 1];
+	google.protobuf.Duration interval = 2 [(validate.rules).duration.gte.seconds = 1];
 }

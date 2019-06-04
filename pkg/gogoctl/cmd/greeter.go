@@ -10,7 +10,7 @@ import (
 	"time"
 
 	"github.com/gogo/protobuf/types"
-	pb "github.com/iwaltgen/grpc-gogo-test/proto"
+	pb "github.com/iwaltgen/grpc-gogo-test/proto/v1"
 	"github.com/spf13/cobra"
 	"google.golang.org/grpc"
 )

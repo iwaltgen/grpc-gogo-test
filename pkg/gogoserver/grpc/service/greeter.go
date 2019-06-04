@@ -6,7 +6,7 @@ import (
 	"time"
 
 	"github.com/gogo/protobuf/types"
-	pb "github.com/iwaltgen/grpc-gogo-test/proto"
+	pb "github.com/iwaltgen/grpc-gogo-test/proto/v1"
 )
 
 // Greeter implement grpc GreeterServiceServer
@@ -20,9 +20,8 @@ func New() *Greeter {
 
 // SayHello name hello reply
 func (s *Greeter) SayHello(ctx context.Context, req *pb.HelloRequest) (*pb.HelloReply, error) {
-	// TODO(iwaltgen): check request
-	if len(req.Name) < 3 {
-		return nil, errors.New("invalid request parameter")
+	if err := req.Validate(); err != nil {
+		return nil, err
 	}
 	return &pb.HelloReply{
 		Message: req.Name + " hello",
@@ -43,9 +42,8 @@ func (s *Greeter) SubscribeTime(
 	req *pb.TimeRequest,
 	stream pb.GreeterService_SubscribeTimeServer) error {
 
-	// TODO(iwaltgen): check request
-	if req.Count < 1 || req.Interval == nil {
-		return errors.New("invalid request parameter")
+	if err := req.Validate(); err != nil {
+		return err
 	}
 
 	interval, err := types.DurationFromProto(req.Interval)

@@ -3,13 +3,10 @@ package main
 import (
 	"fmt"
 	"math/rand"
-	"net"
 	"os"
 	"time"
 
-	"github.com/iwaltgen/grpc-gogo-test/pkg/gogoserver/grpc/service"
-	pb "github.com/iwaltgen/grpc-gogo-test/proto"
-	"google.golang.org/grpc"
+	"github.com/iwaltgen/grpc-gogo-test/pkg/gogoserver/grpc"
 )
 
 func init() {
@@ -18,17 +15,7 @@ func init() {
 
 func main() {
 	// TODO(iwaltgen): flags
-	addr := ":8080"
-	ln, err := net.Listen("tcp", addr)
-	if err != nil {
-		fmt.Fprintf(os.Stdout, "error listen: %v\n", err)
-	}
-
-	s := grpc.NewServer()
-	pb.RegisterGreeterServiceServer(s, service.New())
-
-	fmt.Printf("Serving gRPC %v", addr)
-	if err := s.Serve(ln); err != nil {
-		fmt.Fprintf(os.Stdout, "error serve: %v\n", err)
+	if err := grpc.Serve(8080); err != nil {
+		fmt.Fprintln(os.Stderr, "grpc serve error: %v", err)
 	}
 }
