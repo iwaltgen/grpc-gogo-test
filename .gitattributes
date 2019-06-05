@@ -1,1 +1,4 @@
-vendor/**/* linguist-vendored
+vendor/* linguist-vendored=true
+
+proto/**/*.pb.go linguist-generated=true
+proto/**/*.pb.validate.go linguist-generated=true
