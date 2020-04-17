@@ -1,4 +1,6 @@
 # grpc-gogo-test
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fiwaltgen%2Fgrpc-gogo-test.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fiwaltgen%2Fgrpc-gogo-test?ref=badge_shield)
+
 
 ## /cmd
 
@@ -26,3 +28,7 @@
 bazel run //:gazelle -- update-repos -from_file=go.mod # go 의존성 변경시 마다 실행 필요
 bazel build //...
 ```
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fiwaltgen%2Fgrpc-gogo-test.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fiwaltgen%2Fgrpc-gogo-test?ref=badge_large)
